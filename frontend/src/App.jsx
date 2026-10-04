@@ -638,7 +638,7 @@ int main() {
       setResult(null);
 
       const response = await fetch(
-        "http://localhost:5000/api/review",
+        "import.meta.env.VITE_API_URL/api/review",
         {
           method: "POST",
           headers: {

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import jsPDF from "jspdf";
 import Editor from "@monaco-editor/react";
+const API_URL = import.meta.env.VITE_API_URL;
 
 function Login({ onLogin, onSwitchToSignup }) {
   const [email, setEmail] = useState("");
@@ -17,7 +18,7 @@ function Login({ onLogin, onSwitchToSignup }) {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/login",
+        "https://codeguard-ai-blt6.onrender.com/api/login",
         {
           method: "POST",
           headers: {
@@ -115,7 +116,7 @@ function Signup({ onSignup, onSwitchToLogin }) {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/signup",
+        "https://codeguard-ai-blt6.onrender.com/api/signup",
         {
           method: "POST",
           headers: {
@@ -324,7 +325,7 @@ function Dashboard({ setPage }) {
     const loadDashboardData = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/reviews",
+          "https://codeguard-ai-blt6.onrender.com/api/reviews",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -677,7 +678,7 @@ int main() {
       setTestCases(null);
 
       const response = await fetch(
-        "http://localhost:5000/api/test-cases",
+        "https://codeguard-ai-blt6.onrender.com/api/test-cases",
         {
           method: "POST",
           headers: {
@@ -713,7 +714,7 @@ int main() {
       setOptimization(null);
 
       const response = await fetch(
-        "http://localhost:5000/api/optimize",
+        "https://codeguard-ai-blt6.onrender.com/api/optimize",
         {
           method: "POST",
           headers: {
@@ -753,7 +754,7 @@ int main() {
       setAskAnswer(null);
 
       const response = await fetch(
-        "http://localhost:5000/api/ask-ai",
+        "https://codeguard-ai-blt6.onrender.com/api/ask-ai",
         {
           method: "POST",
           headers: {
@@ -1374,7 +1375,7 @@ function History() {
   const deleteReview = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/reviews/${id}`,
+        `https://codeguard-ai-blt6.onrender.com/api/reviews/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -1400,7 +1401,7 @@ function History() {
   const loadReviews = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/reviews",
+        "https://codeguard-ai-blt6.onrender.com/api/reviews",
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -1644,7 +1645,7 @@ function Analytics() {
     const loadReviews = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/reviews",
+          "https://codeguard-ai-blt6.onrender.com/api/reviews",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -1944,7 +1945,7 @@ function GitHub() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        `http://localhost:5000/api/github/repo?repo=${encodeURIComponent(repoUrl)}`,
+        `https://codeguard-ai-blt6.onrender.com/api/github/repo?repo=${encodeURIComponent(repoUrl)}`,
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -1963,7 +1964,7 @@ function GitHub() {
       setFilesLoading(true);
 
       const filesResponse = await fetch(
-        `http://localhost:5000/api/github/files?repo=${encodeURIComponent(repoUrl)}`,
+        `https://codeguard-ai-blt6.onrender.com/api/github/files?repo=${encodeURIComponent(repoUrl)}`,
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -2003,7 +2004,7 @@ function GitHub() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        `http://localhost:5000/api/github/file?repo=${encodeURIComponent(
+        `https://codeguard-ai-blt6.onrender.com/api/github/file?repo=${encodeURIComponent(
           repoUrl
         )}&path=${encodeURIComponent(file.path)}`,
         {
@@ -2065,7 +2066,7 @@ function GitHub() {
       const language = languageMap[extension] || "Unknown";
 
       const response = await fetch(
-        "http://localhost:5000/api/github/review",
+        "https://codeguard-ai-blt6.onrender.com/api/github/review",
         {
           method: "POST",
           headers: {
@@ -2325,7 +2326,7 @@ function GitHub() {
         const token = localStorage.getItem("token");
 
         const response = await fetch(
-          "http://localhost:5000/api/optimize",
+          "https://codeguard-ai-blt6.onrender.com/api/optimize",
           {
             method: "POST",
             headers: {
